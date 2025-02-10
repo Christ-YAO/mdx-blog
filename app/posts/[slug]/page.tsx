@@ -1,9 +1,8 @@
 import { getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import React from 'react'
-
-export const Page = (props: { params: { slug: string } }) => {
-    const post = getPost(props.params.slug);
+const Page = async (props: { params: { slug: string } }) => {
+    const post = await getPost(props.params.slug);
 
     if (!post) {
         notFound();
@@ -12,3 +11,6 @@ export const Page = (props: { params: { slug: string } }) => {
         <div>page</div>
     )
 }
+
+
+export default Page;
