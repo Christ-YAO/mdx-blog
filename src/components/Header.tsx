@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { ThemeToggle } from './theme/ThemeToggle'
 
 export const Header = () => {
     return (
@@ -8,9 +9,10 @@ export const Header = () => {
                 Codelynx<span className="text-primary">.dev</span>
             </p>
             <div className="ml-auto"></div>
-            <Link href="/" className='text-primary'>
+            <Link href="/" className='text-primary hover:underline'>
                 Post
             </Link>
+            <ThemeToggle />
         </header>
     )
 }
