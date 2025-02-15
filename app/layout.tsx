@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/Header";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={cn(`${geistSans.className} ${geistMono.variable} antialiased h-full max-w-3xl m-auto px-4`)}
+        className={cn(`${geistSans.className} ${geistMono.variable} antialiased min-h-screen h-full max-w-3xl m-auto px-4 relative`)}
       >
         <ThemeProvider
           attribute="class"
@@ -38,7 +39,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <div className="h-full">{children}</div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
