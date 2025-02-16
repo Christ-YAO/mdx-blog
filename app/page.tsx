@@ -12,13 +12,13 @@ export default async function Home() {
           <CardHeader>
             <p className="text-xs text-muted-foreground">{post.publishedAt}</p>
             <CardTitle>{post.title}</CardTitle>
-            <CardDescription>{post.description}</CardDescription>
+            <CardDescription>
+              <p className="mb-2">{post.description}</p>
+              <Link href={`/posts/${post.slug}`}>
+                <span className="text-primary hover:underline">Read more...</span>
+              </Link>
+            </CardDescription>
           </CardHeader>
-          <CardFooter>
-            <Link href={`/posts/${post.slug}`}>
-              <span className="text-primary hover:underline">Read more</span>
-            </Link>
-          </CardFooter>
         </Card>
       ))}
     </div>
