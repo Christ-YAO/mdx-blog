@@ -39,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <div className="h-full">{children}</div>
+          <div className="min-h-[84%]">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>
