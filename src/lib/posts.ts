@@ -12,13 +12,16 @@ const PostSchema = z.object({
   published: z.boolean().optional().default(false),
 });
 
-type Post = z.infer<typeof PostSchema> & { slug: string; content: string };
+export type Post = z.infer<typeof PostSchema> & {
+  slug: string;
+  content: string;
+};
 
 export const getPosts = async () => {
   const files = await fs.readdir(postsDirectory);
   const fileNames = files.filter((file) => file.endsWith(".mdx"));
 
-  const posts = [];
+  const posts: Post[] = [];
   for await (const fileName of fileNames) {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContent = await fs.readFile(fullPath, "utf8");
